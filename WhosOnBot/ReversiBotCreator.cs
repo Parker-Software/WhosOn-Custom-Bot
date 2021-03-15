@@ -2,19 +2,19 @@
 
 namespace WhosOnBot
 {
-    public class CustomBotCreator : IBotCreator
+    public class ReversiBotCreator : IBotCreator
     {
         public Delegates.CreateBot DoCreateBot
         {
             get
             {
-                return ((x) =>
+                return ((settings) =>
                 {
-                    return new CustomBot();
+                    return new ReversiBot();
                 });
             }
         }
 
-        public string BotType => "CustomBot";
+        public string BotType => "Reversi";
     }
 }

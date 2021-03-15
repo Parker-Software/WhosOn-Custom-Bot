@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E09962C-B82E-4DA3-9D78-E90CAE03ABBF}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhosOnBot</RootNamespace>
-    <AssemblyName>WhosOnBot</AssemblyName>
+    <ProjectGuid>{140EBFA0-8722-463E-9FC8-125B2380B56C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Bot_Test_Harness</RootNamespace>
+    <AssemblyName>Bot-Test-Harness</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\WhosOnBot\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Parkersoft.WhosOn.BotConnector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Parkersoft.WhosOn.BotConnector.20.1.11\lib\net462\Parkersoft.WhosOn.BotConnector.dll</HintPath>
+      <HintPath>..\WhosOnBot\packages\Parkersoft.WhosOn.BotConnector.20.1.11\lib\net462\Parkersoft.WhosOn.BotConnector.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,13 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="CustomBot.cs" />
-    <Compile Include="CustomBotCreator.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Basic-Rasa-Bot\Basic-Rasa-Bot.csproj">
+      <Project>{8c1d2940-e898-44b8-a307-9c1de8ff4116}</Project>
+      <Name>Basic-Rasa-Bot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhosOnBot\Basic-Reversi-Bot.csproj">
+      <Project>{9e09962c-b82e-4da3-9d78-e90cae03abbf}</Project>
+      <Name>Basic-Reversi-Bot</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
